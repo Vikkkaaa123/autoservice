@@ -1,0 +1,559 @@
+/* Общие стили */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('fon.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    line-height: 1.6;
+}
+
+body::before {
+    display: none;
+}
+
+/* Кнопка меню */
+.menu-button {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-icon {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.menu-button:hover .menu-icon {
+    transform: scale(1.1);
+}
+
+/* Боковое меню */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffcc80, #ffb74d);
+    box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+    transition: left 0.3s ease-out;
+    z-index: 999;
+    padding-top: 70px;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    transition: all 0.3s;
+}
+
+.sidebar a:hover {
+    color: #000;
+    padding-left: 10px;
+    background-color: #ff9800;
+}
+
+/* Основное содержимое */
+main {
+    margin-left: 0;
+    padding: 20px;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease-out;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.sidebar.active + main {
+    margin-left: 250px;
+}
+
+/* Стиль для просмотра клиента */
+.client-view-container {
+    margin-left: 50px;
+}
+
+/* Заголовки страниц */
+.section-title, .form-container h2, .customer-view h2 {
+    text-align: center;
+    margin: 30px 0 20px;
+    color: #333;
+    font-size: 2rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ffcc80;
+}
+
+/* Кнопка добавления */
+.add-btn-wrapper {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.add-btn, .btn, .btn-submit, .btn-cancel, .customer-actions a {
+    display: inline-block;
+    background-color: #ffcc80;
+    color: #000;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.add-btn:hover, .btn:hover, .btn-submit:hover, .customer-actions a:hover {
+    background-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    color: #000;
+}
+
+.btn-cancel {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background-color: #bdbdbd;
+    color: #000;
+}
+
+/* Карточки на главной */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #ffcc80, #ffb74d);
+    color: #000;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+}
+
+.stat-card p {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
+/* Таблицы */
+.table-container {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #ffcc80;
+    color: #000;
+}
+
+tr {
+    background-color: white;
+}
+
+tr:hover {
+    background-color: rgba(255, 204, 128, 0.2); 
+}
+
+/* Формы */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-actions .btn-submit,
+.form-actions .btn-cancel {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Обертка для слайдера и кнопок */
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1600px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Стили для слайдера */
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    flex-grow: 1;
+    max-width: none;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.7s ease-in-out;
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* Стили для кнопок слайдера */
+.slider-btn {
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.slider-btn:hover {
+    background: #ffecb3;
+    transform: scale(1.05);
+}
+
+.slider-btn .arrow-icon {
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.slider-btn:hover .arrow-icon {
+    opacity: 1;
+}
+
+.prev-btn .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Адаптивность для слайдера */
+@media (max-width: 768px) {
+    .slider-wrapper {
+        gap: 10px;
+    }
+    
+    .slider-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .slider-btn .arrow-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .slide img {
+        max-height: 300px;
+    }
+}
+
+/* Стили для футера */
+footer {
+    background-color: #ffcc80;
+    color: #000;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #ffcc80, #ffb74d, #ffcc80);
+    border-top: 1px solid #ff9800;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Стили для редактирования автомобилей */
+.cars-edit-list {
+    margin-bottom: 20px;
+}
+
+.car-edit-group {
+    background: rgba(255, 204, 128, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ffcc80;
+}
+
+.car-edit-group h4 {
+    margin-bottom: 15px;
+    color: #ff9800;
+}
+
+.car-number {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #ff8c00;
+}
+
+
+
+/* Общие стили для всех кнопок */
+.btn-main, .btn-action {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: #ffcc80;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-main:hover, .btn-action:hover {
+    background-color: #ff9800;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+
+
+/* Специфичные стили для кнопок действий */
+.btn-action {
+    padding: 5px 10px;
+    margin: 0 2px;
+    font-size: 13px;
+}
+
+/* Стили для поиска */
+.top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-box input[type="text"] {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-width: 250px;
+    transition: border 0.3s;
+}
+
+.search-box input[type="text"]:focus {
+    border-color: #ff9800;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+/* Сообщение об отсутствии результатов */
+.no-results {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .top-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .search-box input[type="text"] {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+
+
+
+
+
+
+
+.search-sort-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sort-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sort-box label {
+    font-weight: 500;
+    color: #555;
+}
+
+.sort-box select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.sort-box select:hover {
+    border-color: #ff9800;
+}
+
+table th a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+table th a:hover {
+    color: #ff9800;
+}
